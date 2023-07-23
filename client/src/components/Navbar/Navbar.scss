@@ -1,0 +1,118 @@
+.navbar {
+  height: 60px;
+  width: 100vw;
+
+  .wrapper {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo{
+      font-size: 20px;
+      font-weight: bold;
+      color: #2879fe;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+    
+    .start-0{
+      transition: 1s ease-out;
+    }
+    
+
+    .item:hover{
+      color: #2879fe;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    .cursor-pointer{
+      cursor: pointer;
+    }
+    .center {
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+
+      .icons {
+        display: flex;
+        gap: 15px;
+        color: #777;
+        cursor: pointer;
+
+        .cartIcon {
+          position: relative;
+
+          
+          span {
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #2879fe;
+            color: white;
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width:992px) {
+  #items-list{
+    background-color:transparent !important;
+    position: relative !important;
+  }
+  
+}
+@media screen and (max-width:992px) {
+  .navbar{
+    .logo-container{
+      width: 50vw !important;
+    }
+
+    .items-list{
+      min-height:100vh ;
+      
+      .item{
+        padding: 15px 100px 10px 22px;
+        font-size: 16px !important;
+      }
+      .close-btn{
+        font-size: 14px !important;
+        color: gray;
+        border-bottom: 1px solid gray;
+        .cl-btn>*{
+          font-size: 17px !important;
+          margin-bottom: 2px;
+        }
+      }
+    }
+    .start-n-60{
+      left: -300px;
+      // animation: 1s ease all;
+      transition: 1s ease-in-out;
+    }
+    }
+ 
+}
+
+@media screen and (max-width:650px) {
+  
+}
