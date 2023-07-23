@@ -36,18 +36,23 @@ const Cart = () => {
       console.log(err);
     }
   };
+  console.log(products)
   return (
     <div className="cart">
-      <h1>Products in your cart</h1>
+      <h1 className="fs-5 mb-4">Products in your cart</h1>
       {products?.map((item) => (
         <div className="item" key={item.id}>
+            <div className="d-flex">
+
+            
           <img src={process.env.REACT_APP_UPLOAD_URL + item.img} alt="" />
-          <div className="details">
+          <div className="details ">
             <h1>{item.title}</h1>
             <p>{item.desc?.substring(0, 100)}</p>
             <div className="price">
               {item.quantity} x ${item.price}
             </div>
+          </div>
           </div>
           <DeleteOutlinedIcon
             className="delete"

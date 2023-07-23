@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import Weather from '../../components/Weather/Weather'
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -14,10 +15,17 @@ const Navbar = () => {
   const [open,setOpen] = useState(false)
   const products = useSelector((state) => state.cart.products);
   const [toggle,setToggle] = useState(false);
+  useEffect(()=>{
+   let handleclick = ()=>{
+      setToggle(false);
+    }
+    document.addEventListener("mousedown",handleclick);
+
+  });
 
   return (
     <div className="navbar">
-      <div className="wrapper w-100">
+      <div className="wrapper w-100 pt-0">
         <div className="left flex-row-reverse flex-lg-row w-50 justify-content-between justify-content-lg-start logo-container">
          <div className="logo">
           <Link className ="link" to="/" style={{fontFamily:"Playfair Display"}}>MAMASTORE</Link>
@@ -39,9 +47,6 @@ const Navbar = () => {
             <Link className ="link" to="/">Contact</Link>
           </div>
           <div className="item">
-            <Link className ="link" to="/">Stores</Link>
-          </div>
-          <div className="item">
             <Link className ="link" to="/products/1">Women</Link>
           </div>
           <div className="item">
@@ -51,21 +56,20 @@ const Navbar = () => {
             <Link className ="link" to="/products/3">Children</Link>
           </div>
          </div>
-          <div className={`bars-icon d-md-block d-lg-none cursor-pointer`} onClick={()=> setToggle(true) }>
+          <div className={`bars-icon mb-3 d-md-block d-lg-none cursor-pointer`} onClick={()=> setToggle(true) }>
            <MenuIcon />
           </div>
         </div>
         <div className="right">
           
-          <div className="icons">
+          <div className="icons align-items-center">
             <SearchIcon/>
             <div className="cartIcon" onClick={()=>setOpen(!open)}>
               <ShoppingCartOutlinedIcon/>
               <span>{products.length}</span>
             </div>
             <div className="d-none d-sm-block">
-            <FavoriteBorderOutlinedIcon/>
-            <PersonOutlineOutlinedIcon/>
+              <Weather/>
             </div>
           </div>
         </div>

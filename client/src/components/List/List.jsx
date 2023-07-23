@@ -12,7 +12,7 @@ const List = ({ subCats, maxPrice, sort, catId }) => {
   console.log(data);
 
   return (
-    <div className="list">
+    <div className="list gap-md-3 row">
       {loading
         ? "loading"
         : data?.map((item) => <Card item={item} key={item.id} />)}

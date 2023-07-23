@@ -1,5 +1,15 @@
 .list{
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  // justify-content: space-between;
+  flex-wrap: wrap;
+ 
+}
+
+@media screen and (min-width:992px) {
+  .list{
+    .col-md-3{
+      width: 31.7% !important;
+    }
+  }
 }

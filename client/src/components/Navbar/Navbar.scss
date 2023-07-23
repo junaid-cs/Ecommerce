@@ -89,6 +89,8 @@
 
     .items-list{
       min-height:100vh ;
+      z-index: 9 !important;
+
       
       .item{
         padding: 15px 100px 10px 22px;

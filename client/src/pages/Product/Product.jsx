@@ -16,7 +16,8 @@ const Product = () => {
 
   const dispatch = useDispatch();
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
-
+//  let data1 = data?.attributes?.sub_categories.data.map((title)=> title.attributes.title);
+//  console.log(data1)
   return (
     <div className="product">
       { error?
@@ -56,9 +57,10 @@ const Product = () => {
             </div>
           </div>
           <div className="right">
-            <h1>{data?.attributes?.title}</h1>
+            <h1 className="text-capitalize ">{data?.attributes?.title}</h1>
             <span className="price">${data?.attributes?.price}</span>
-            <p>{data?.attributes?.desc}</p>
+            <p className="text-capitalize"><span className="text-blue">Brand :</span> {data?.attributes?.brand}</p>
+            <p className="text-capitalize">{data?.attributes?.desc}</p>
             <div className="quantity">
               <button
                 onClick={() =>
@@ -97,17 +99,17 @@ const Product = () => {
             </div>
             <div className="info">
               <span>Vendor: Polo</span>
-              <span>Product Type: T-Shirt</span>
-              <span>Tag: T-Shirt, Women, Top</span>
+              <span className="text-capitalize">Product Type: {data?.attributes?.sub_categories.data[0]?.attributes?.title}</span>
+              {/* <span className="text-capitalize">Tag: { data1.map((item)=> `${item},`)}</span> */}
             </div>
             <hr />
-            <div className="info">
+            {/* <div className="info">
               <span>DESCRIPTION</span>
               <hr />
               <span>ADDITIONAL INFORMATION</span>
               <hr />
               <span>FAQ</span>
-            </div>
+            </div> */}
           </div>
         </>
       )}
